@@ -47,27 +47,21 @@ v1.1.0
 v1.0.10
 
 - update the jQuery library source
-
 - minor bug fixes
 
 
 v1.0.9
 
 - set the image max-width to 100%
-
 - unread count in title bar
-
 - minor bug fixes
 
 
 v1.0.8
 
 - TipidPColor now have an option window (located at site User Options)
-
 - You can now choose a themes
-
 - Change the font-size of forum post or reply
-
 - Hide/Show the site logo
 
 
@@ -79,15 +73,12 @@ v1.0.7
 v1.0.6
 
 - change the name to TipidPColor from TPColor
-
 - replace 'Start a Topic', 'Prev' and 'Next' button with a link
-
 - remove 'Go' button
-
 - 'postcontent' or forum post font size change to 12px
 
-v1.0.5
 
+v1.0.5
 
 - change the color of online buddies and topic title in forum
 
