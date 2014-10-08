@@ -13,6 +13,8 @@ Screenshot:
 
 http://i.imgur.com/lG3to25.jpg
 
+Click this link to install: https://monkeyguts.com/code.php?id=219
+
 Changelog:
 
 v1.1.4
