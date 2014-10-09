@@ -11,7 +11,7 @@ Change the color of navigation bar, alert box, and many more..
 
 <b>Screenshot:</b>
 
-http://i.imgur.com/lG3to25.jpg
+<img src="http://i.imgur.com/lG3to25.jpg">
 
 Click <a href="https://monkeyguts.com/code.php?id=219">here</a> to install.
 
