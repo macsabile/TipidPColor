@@ -9,13 +9,13 @@ Features:
 
 Change the color of navigation bar, alert box, and many more..
 
-Screenshot:
+<b>Screenshot:</b>
 
 http://i.imgur.com/lG3to25.jpg
 
-Click this link to install: https://monkeyguts.com/code.php?id=219
+Click <a href="https://monkeyguts.com/code.php?id=219">here</a> to install.
 
-Changelog:
+<b>Changelog:</b>
 
 v1.1.4
 
