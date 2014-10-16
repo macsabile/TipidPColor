@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.1.5
-// @date       10-09-2014
+// @version    1.1.6
+// @date       10-14-2014
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
     checkSavedSettings();
 
-    var ver = 'v1.1.5';
+    var ver = 'v1.1.6';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
@@ -171,7 +171,7 @@ $(document).ready(function(){
     
     if (page == "itemmanager") {
         
-        var countDownTimer = '<script>var max_time = '+ intervalNum +';var cinterval;function countdown_timer(){max_time--;document.getElementById("countdown").innerHTML = max_time;if(max_time == 0){clearInterval(cinterval);}}cinterval = setInterval("countdown_timer()", 1000);</script>'
+        var countDownTimer = '<script>var max_time = '+ intervalNum +';var cinterval;function countdown_timer(){max_time--;document.getElementById("countdown").innerHTML = max_time;if(max_time == 0){clearInterval(cinterval);}}cinterval = setInterval("countdown_timer()", 1000);</script>';
 
         if( refreshPageValue == '1' ) {
             $('head').append(countDownTimer);  
@@ -189,17 +189,17 @@ $(document).ready(function(){
         }
         else {
             //GM_log('do nothing');
-        };
+        }
     }
     
     function chooseTheme(name) {
     	if (name == "light-green")
         {
-            GM_addStyle ( "body{margin: 0 auto;padding: 0;background: #666;width: 100%;}img{max-width:100%;}#container{margin: 0;}a:link{color: #259b24;}#nav a:hover, a:hover{color: #0d5302;text-decoration:none;}div.alertbox{background: #f36c60;color: #fff;}ul.forumtopics h4 a, ul.forumtopics h4 a:visited{color: green;}span.pageBorder{border: 1px solid rgb(167, 167, 167);padding: 2px;}h2.forumsection a, h2.forumsection a:visited{color: #428EFF;}#buddies li.online a.prlink{color: #9b59b6;font-weight: bold;font-size: 11px;}h1.topictitle{font-size: 14px;color: #428EFF;}div.window.itembrowser{background: #8bc34a;}#nav{background: #8bc34a;padding: 20px 0 20px 0;font-size: medium;border: 0px;}#banner_big, #layout #left, #layout #right{border: 0px;}.new td, .flagged td{background: #B9DFBA;color: #fff;border: 1px solid #27ae60;}.premium{background: #E7EEFF;color: #F72A2A;border: 1px solid #5A88FF;}a, a:visited{color: green;}table.itemlist a:link, .even a:visited, .odd a:visited{color: green;}" );
+            GM_addStyle ( "body{margin: 0 auto;padding: 0;background: #8bc34a;width: 100%;}img{max-width:100%;}#container{margin: 0;}a:link{color: #259b24;}#nav a:hover, a:hover{color: #0d5302;text-decoration:none;}div.alertbox{background: #f36c60;color: #fff;}ul.forumtopics h4 a, ul.forumtopics h4 a:visited{color: green;}span.pageBorder{border: 1px solid rgb(167, 167, 167);padding: 2px;}h2.forumsection a, h2.forumsection a:visited{color: #428EFF;}#buddies li.online a.prlink{color: #9b59b6;font-weight: bold;font-size: 11px;}h1.topictitle{font-size: 14px;color: #428EFF;}div.window.itembrowser{background: #8bc34a;}#nav{background: #8bc34a;padding: 8px 0 20px 0;font-size: medium;border: 0px;}#banner_big, #layout #left, #layout #right{border: 0px;}.new td, .flagged td{background: #B9DFBA;color: #fff;border: 1px solid #27ae60;}.premium{background: #E7EEFF;color: #F72A2A;border: 1px solid #5A88FF;}a, a:visited{color: green;}table.itemlist a:link, .even a:visited, .odd a:visited{color: green;}" );
         }
         else if (name == "night")
         {
-            GM_addStyle ("body{margin: 0 auto;padding: 0;background: #666;width: 100%;}img{max-width:100%;}#container{margin: 0;}blockquote a {color: #D82945;}div.normalbox{color: #000;}p.itemmeta{background: #224044; border: none;}h1.itemname,h2.itemprice{color: #fff;}#nav{background: #263238;padding: 20px 0 20px 0;font-size: medium;border: 0px;}#banner_big{background: #455a64}#layout {background: #455a64;}#banner_big, #layout #left, #layout #right{border: 0px;}div.alertbox{background: #009688;color: #fff;border: 0;}div.window,td.window, div.window.itembrowser{background: #455a64;color: #fff;border: 1px solid #cfd8dc;}h3.wintitle {color: #fff;}div.postcontent, ul.posts li {background: #455a64;color: #fff;}ul.posts li{border: 1px solid #cfd8dc;}blockquote {border: 0;background: #b0bec5;color: #000;font-style: italic;}div.postcontent {border-top 1px solid #cfd8dc!Important;border-left: 0;border-right:0;border-bottom:0;}h1.topictitle{color: #fff;}a, a:visited{color: #cfd8dc;text-decoration:none;}a:hover{color: #fff;text-decoration:none;}.new td a, .flagged td a {color: #fff;}.new td a:hover, .flagged td a:hover {color: #cfd8dc;}.new td, .flagged td {background: #4db6ac;border: 1px solid #009688;}.odd, .odd td {border: 1px solid #999;background: #78909c;}.odd a, .odd td a{color: #fff!Important;}.odd a:hover, .odd td a:hover{color: #cfd8dc!Important;}.even, .even td {background: #455a64;border: 1px solid #999;}.even a, .even td a{color: #fff!Important;}.even a:hover, .even td a:hover{color: #cfd8dc!Important;}#announcement{background:#b2dfdb;}#announcement a{color:#008000;}.premium {background: #cfd8dc;border: 1px solid #009688;}.premium a {color:#009688;}.premium a:hover {color:#607d8b;}.modal-header {background: #263238;}.btn-save {background: #263238;border: #607d8b solid 1px;}.btn-save:hover {background: #607d8b;border: 1px solid #607d8b;}td, td p, span {color: #fff;}.modal-container td {color: #000;}table.pager td a {color: #000;}table.pager td a:hover {color: #259b24;}");
+            GM_addStyle ("body{margin: 0 auto;padding: 0;background: #263238;width: 100%;}img{max-width:100%;}#container{margin: 0;}blockquote a {color: #D82945;}div.normalbox{color: #000;}p.itemmeta{background: #224044; border: none;}h1.itemname,h2.itemprice{color: #fff;}#nav{background: #263238;padding: 8px 0 20px 0;font-size: medium;border: 0px;}#banner_big{background: #455a64}#layout {background: #455a64;}#banner_big, #layout #left, #layout #right{border: 0px;}div.alertbox{background: #009688;color: #fff;border: 0;}div.window,td.window, div.window.itembrowser{background: #455a64;color: #fff;border: 1px solid #cfd8dc;}h3.wintitle {color: #fff;}div.postcontent, ul.posts li {background: #455a64;color: #fff;}ul.posts li{border: 1px solid #cfd8dc;}blockquote {border: 0;background: #b0bec5;color: #000;font-style: italic;}div.postcontent {border-top 1px solid #cfd8dc!Important;border-left: 0;border-right:0;border-bottom:0;}h1.topictitle{color: #fff;}a, a:visited{color: #cfd8dc;text-decoration:none;}a:hover{color: #fff;text-decoration:none;}.new td a, .flagged td a {color: #fff;}.new td a:hover, .flagged td a:hover {color: #cfd8dc;}.new td, .flagged td {background: #4db6ac;border: 1px solid #009688;}.odd, .odd td {border: 1px solid #999;background: #78909c;}.odd a, .odd td a{color: #fff!Important;}.odd a:hover, .odd td a:hover{color: #cfd8dc!Important;}.even, .even td {background: #455a64;border: 1px solid #999;}.even a, .even td a{color: #fff!Important;}.even a:hover, .even td a:hover{color: #cfd8dc!Important;}#announcement{background:#b2dfdb;}#announcement a{color:#008000;}.premium {background: #cfd8dc;border: 1px solid #009688;}.premium a {color:#009688;}.premium a:hover {color:#607d8b;}.modal-header {background: #263238;}.btn-save {background: #263238;border: #607d8b solid 1px;}.btn-save:hover {background: #607d8b;border: 1px solid #607d8b;}td, td p, span {color: #fff;}.modal-container td {color: #000;}table.pager td a {color: #000;}table.pager td a:hover {color: #259b24;}");
         }
         else
         {
@@ -264,6 +264,7 @@ $(document).ready(function(){
     });
 
     Mousetrap.bind('esc', function(){window.location = "#close";});
+    Mousetrap.bind('f8', function(){window.location = "#tpcolorOptions";});
     
     $( "#trigger" ).click(function() {
         $(".note").fadeTo("fast", 1);
