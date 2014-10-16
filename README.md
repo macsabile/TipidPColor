@@ -17,6 +17,15 @@ Click <a href="https://monkeyguts.com/code.php?id=219">here</a> to install.
 
 <b>Changelog:</b>
 
+v1.1.6
+- bug fixes
+
+
+v1.1.5
+- add a keyboard shortcut (F8) to open TipidPColor option
+- small bug fixes
+
+
 v1.1.4
 
 - add a keyboard shortcut (Esc) to close the TipidPColor option
