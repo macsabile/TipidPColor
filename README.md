@@ -17,6 +17,10 @@ Click <a href="https://monkeyguts.com/code.php?id=219">here</a> to install.
 
 <b>Changelog:</b>
 
+v1.1.7
+- option to hide/show announcements
+- removed useless codes
+
 v1.1.6
 - bug fixes
 
