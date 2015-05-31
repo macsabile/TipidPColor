@@ -17,6 +17,9 @@ Click <a href="https://monkeyguts.com/code.php?id=219">here</a> to install.
 
 <b>Changelog:</b>
 
+v1.1.9
+- bug fixed in countdown timer
+
 v1.1.8
 - minor bug fixes
 
