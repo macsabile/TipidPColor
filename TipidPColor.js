@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.1.7
-// @date       10-14-2014
+// @version    1.1.8
+// @date       05-15-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -20,13 +20,13 @@
 // @require     http://cdn.craig.is/js/mousetrap/mousetrap.min.js
 // @icon        https://monkeyguts.com/icon/219.png
 // ==/UserScript==
-
-
+ 
+ 
 $(document).ready(function(){
-
+ 
     checkSavedSettings();
-
-    var ver = 'v1.1.7';
+ 
+    var ver = 'v1.1.8';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
@@ -35,29 +35,29 @@ $(document).ready(function(){
     var buddiesValue = GM_getValue('offBuddies');
     var intervalNum = GM_getValue('countDown');
     var announcementValue = GM_getValue('HideAnnouncement');
-
+ 
     optionsWindow();
     setSavedSettings();
     prevNext();
     getUnreadCount();
-
+ 
     function optionsWindow() {
-
+ 
         var customCSS = '<style>.modal-container{font-size: 15px!important;position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.8);z-index:99999;opacity:0;-webkit-transition:opacity 400ms ease-in;-moz-transition:opacity 400ms ease-in;transition:opacity 400ms ease-in;pointer-events:none}.modal-container:target{opacity:1;pointer-events:auto}.modal-dialog{width:510px;position:relative;margin:10% auto;padding:1px;border-radius:5px;background:#fff}.modal-header{background:#8bc34a;color:#fff;padding:5px;border-top-left-radius:5px;border-top-right-radius:5px}.modal-header h1{font-size:12px;padding-left:5px}.modal-body{height:260px;padding:20px 10px 0;border-bottom:1px solid #eee}.modal-footer{text-align:right;padding:5px 5px 5px 0}.version{color:#9e9e9e;font-size:10px;text-decoration:none;position:absolute;left:15px;bottom:15px}.btn-save{background:#8bc34a;border:#8bc34a solid 1px;border-radius:3px;color:#fff!Important;display:inline-block;font-size:14px;padding:8px 15px;text-decoration:none!Important;text-align:center;min-width:60px;position:relative;transition:color .1s ease}.btn-save:hover{background:#7cb342;border:#7cb342 solid 1px;border-radius:3px;color:#fff}.btn-cancel{background:#e0e0e0;border:#e0e0e0 solid 1px;border-radius:3px;color:#424242!Important;display:inline-block;font-size:14px;padding:8px 15px;text-decoration:none!Important;text-align:center;min-width:60px;position:relative;transition:color .1s ease}.btn-cancel:hover{background:#bdbdbd;border:#bdbdbd solid 1px;border-radius:3px;color:#fff}.btn-close{color:#fff!Important;font-size:20px;text-decoration:none!Important;position:absolute;right:15px;top:10px}table,tr{border-style:none}table th.title{width:300px;text-align:left}p.note{color: red;padding: 0 0 20px 0;margin: 0 auto;font-size: 14px;text-align: center;}.scrollup{width: 21px;height: 21px;text-indent: -9999px;z-index: 9999;opacity: 0.5;position: fixed;bottom: 40px;right: 20px;display: none;background: url("http://i.imgur.com/GX0tvHR.png") no-repeat;}.scrollup:hover {opacity: 1;}</style>';
-
-        var settingDialog = '<div id="tpcolorOptions" class="modal-container"> <div class="modal-dialog"> <div class="modal-header"> <h1>TipidPColor Options</h1> <a href="#close" class="btn-close" aria-hidden="true">×</a> </div> <div class="modal-body"> <p class="note">Changes are saved immediately and applied on next page load.</p> <table> <tr> <th class="title"></th> <th class=""></th> </tr> <tr> <td>Hide site logo</td> <td><label><input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoYes" value="yes">Yes</label> <label><input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoNo" value="no">No</label> </td> </tr> <tr> <td>Hide offline buddies</td> <td><label><input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineYes" value="yes">Yes</label> <label><input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineNo" value="no">No</label> </td> </tr> <tr> <td>Hide announcements</td> <td><label><input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementYes" value="yes">Yes</label> <label><input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementNo" value="no">No</label> </td> </tr> <tr> <td>Reload Items and Bookmark tab every</td> <td><label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItemNone" value="none">none</label> <label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItem15s" value="15">15s</label> <label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItem30s" value="30">30s</label></td> </tr> <tr> <td>Forum post font-size</td> <td><label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSizeDefault" value="deafault">default</label> <label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize12px" value="12">12px</label> <label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize15px" value="15">15px</label></td> </tr><tr><td><br></td><td> </td></tr> <tr> <td>Themes</td> <td><label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesDefault" value="default">Default</label><br> <label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesLight" value="light-green">Light-green</label><br> <label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesNight" value="night">Dark</label></td> </tr> </table> </div> <div class="modal-footer"> <a href="https://monkeyguts.com/code.php?id=219" title="Check for updates" target="_blank"><span class="version">' + ver + '</span></a> <a href="" id="refresh" class="btn-save">Refresh</a> </div> </div> </div><a href="#" class="scrollup" title="Scroll to Top">Scroll to Top</a>';
-
+ 
+        var settingDialog = '<div id="tpcolorOptions" class="modal-container"> <div class="modal-dialog"> <div class="modal-header"> <h1>TipidPColor Options</h1> <a href="#close" class="btn-close" aria-hidden="true">×</a> </div> <div class="modal-body"> <p class="note">Changes are saved immediately and applied on next page load.</p> <table> <tr> <th class="title"></th> <th class=""></th> </tr> <tr> <td>Hide site logo</td> <td><label><input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoYes" value="yes">Yes</label> <label><input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoNo" value="no">No</label> </td> </tr> <tr> <td>Hide offline buddies</td> <td><label><input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineYes" value="yes">Yes</label> <label><input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineNo" value="no">No</label> </td> </tr> <tr> <td>Hide banner and announcements</td> <td><label><input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementYes" value="yes">Yes</label> <label><input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementNo" value="no">No</label> </td> </tr> <tr> <td>Reload Items and Bookmark tab every</td> <td><label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItemNone" value="none">none</label> <label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItem15s" value="15">15s</label> <label><input type="radio" name="itemRefresh" class="rdRefreshItem" id="rdRefreshItem30s" value="30">30s</label></td> </tr> <tr> <td>Forum post font-size</td> <td><label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSizeDefault" value="deafault">default</label> <label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize12px" value="12">12px</label> <label><input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize15px" value="15">15px</label></td> </tr><tr><td><br></td><td> </td></tr> <tr> <td>Themes</td> <td><label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesDefault" value="default">Default</label><br> <label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesLight" value="light-green">Light-green</label><br> <label><input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesNight" value="night">Dark</label></td> </tr> </table> </div> <div class="modal-footer"> <a href="https://monkeyguts.com/code.php?id=219" title="Check for updates" target="_blank"><span class="version">' + ver + '</span></a> <a href="" id="refresh" class="btn-save">Refresh</a> </div> </div> </div><a href="#" class="scrollup" title="Scroll to Top">Scroll to Top</a>';
+ 
         var dialogTrigger = '<a href="#tpcolorOptions">TipidPColor Options</a>';
-
+ 
         $('head').append(customCSS);
         $('body').append(settingDialog);
-
+ 
         var topLink = $("#content_left a[href^='security.php']");
         if (topLink.length > 0) {
             $("<li />").append(dialogTrigger).insertAfter(topLink.parent());
         } else $('#nav').append(dialogTrigger);
     }
-
+ 
     function checkSavedSettings() {
         if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '1');
         if (GM_getValue('offBuddies', -5) == -5) GM_setValue('offBuddies', '0');
@@ -67,7 +67,7 @@ $(document).ready(function(){
         if (GM_getValue('countDown', -5) == -5) GM_setValue('countDown', '0');
         if (GM_getValue('HideAnnouncement', -5) == -5) GM_setValue('HideAnnouncement', '0');
     }
-
+ 
     function setSavedSettings() {
         //hide site logo
         if (siteLogoValue == '1') {
@@ -75,7 +75,7 @@ $(document).ready(function(){
             $("#logo").remove();
             $("#banner_top").remove();
         } else selectID('#rdHideSiteLogoNo');
-
+ 
         //hide offline buddies
         if (buddiesValue == '1') {
             selectID('#rdHideOfflineYes');
@@ -86,15 +86,16 @@ $(document).ready(function(){
         if (announcementValue == '1') {
             selectID('#rdHideAnnouncementYes');
             $("#announcement").remove();
+            $("#banner_big").remove();
         } else selectID('#rdHideAnnouncementNo');
-
+ 
         //reload items and bookmarks
         if (refreshPageValue == '1') {
             selectID('#rdRefreshItem15s');
         } else if (refreshPageValue == '2') {
             selectID('#rdRefreshItem30s');
         } else selectID('#rdRefreshItemNone');
-
+ 
         //forum post font-size
         if (forumPostValue == '1') {
             selectID('#rdForumPostSize12px');
@@ -106,7 +107,7 @@ $(document).ready(function(){
             selectID('#rdForumPostSizeDefault');
             GM_addStyle("div.postcontent {font-size: 10px;}");
         }
-
+ 
         //themes
         if (siteThemesValue == '1') {
             selectID('#rdSiteThemesLight');
@@ -116,12 +117,12 @@ $(document).ready(function(){
             chooseTheme('night');
         } else selectID('#rdSiteThemesDefault');
     }
-
+ 
     function selectID(id) {
         $(id).attr('checked', true);
         //GM_log(id);
     }
-
+ 
     function getUnreadCount() {
         var post = $('.alertbox ul li').text();
         var title = $('title').text();
@@ -129,17 +130,17 @@ $(document).ready(function(){
             $('title').html('(' + parseInt(post) + ') ' + title + '');
         }
     }
-
+ 
     $('#refresh').click(function () {
         location.reload();
     });
-
+ 
     $('.rdHideSiteLogo').change(function () {
         var val = $("input[name=siteLogo]:checked").val();
         if (val == 'yes') GM_setValue('HideSiteLogo', '1');
         else GM_setValue('HideSiteLogo', '0');
     });
-
+ 
     $('.rdHideOffline').change(function () {
         var val = $("input[name=myBuddies]:checked").val();
         if (val == 'yes') GM_setValue('offBuddies', '1');
@@ -151,7 +152,7 @@ $(document).ready(function(){
         if (val == 'yes') GM_setValue('HideAnnouncement', '1');
         else GM_setValue('HideAnnouncement', '0');
     });
-
+ 
     $('.rdRefreshItem').change(function () {
         var val = $("input[name=itemRefresh]:checked").val();
         if (val == '15') {
@@ -162,25 +163,25 @@ $(document).ready(function(){
             GM_setValue('countDown', '30');
         } else GM_setValue('RefreshItemsAndBookmarks', '0');
     });
-
+ 
     $('.rdForumPostSize').change(function () {
         var val = $("input[name=fontSize]:checked").val();
         if (val == '12') GM_setValue('forumPostFontSize', '1');
         else if (val == '15') GM_setValue('forumPostFontSize', '2');
         else GM_setValue('forumPostFontSize', '0');
     });
-
+ 
     $('.rdSiteThemes').change(function () {
         var val = $("input[name=selectThemes]:checked").val();
         if (val == 'light-green') GM_setValue('siteThemes', '1');
         else if (val == 'night') GM_setValue('siteThemes', '2');
         else GM_setValue('siteThemes', '0');
     });
-
+ 
     if (page == "itemmanager") {
-
+ 
         var countDownTimer = '<script>var max_time = ' + intervalNum + ';var cinterval;function countdown_timer(){max_time--;document.getElementById("countdown").innerHTML = max_time;if(max_time == 0){clearInterval(cinterval);}}cinterval = setInterval("countdown_timer()", 1000);</script>';
-
+ 
         if (refreshPageValue == '1') {
             $('head').append(countDownTimer);
             $("#banner_big").append('<span id="textNum">This page will reload in <span id="countdown">15</span> second/s.</span>');
@@ -197,7 +198,7 @@ $(document).ready(function(){
             //GM_log('do nothing');
         }
     }
-
+ 
     function chooseTheme(name) {
         if (name == "light-green") {
             GM_addStyle("body{margin: 0 auto;padding: 0;background: #8bc34a;width: 100%;}img{max-width:100%;}#container{margin: 0;}a:link{color: #259b24;}#nav a:hover, a:hover{color: #0d5302;text-decoration:none;}div.alertbox{background: #f36c60;color: #fff;}ul.forumtopics h4 a, ul.forumtopics h4 a:visited{color: green;}span.pageBorder{border: 1px solid rgb(167, 167, 167);padding: 2px;}h2.forumsection a, h2.forumsection a:visited{color: #428EFF;}#buddies li.online a.prlink{color: #9b59b6;font-weight: bold;font-size: 11px;}h1.topictitle{font-size: 14px;color: #428EFF;}div.window.itembrowser{background: #8bc34a;}#nav{background: #8bc34a;padding: 8px 0 20px 0;font-size: medium;border: 0px;}#banner_big, #layout #left, #layout #right{border: 0px;}.new td, .flagged td{background: #B9DFBA;color: #fff;border: 1px solid #27ae60;}.premium{background: #E7EEFF;color: #F72A2A;border: 1px solid #5A88FF;}a, a:visited{color: green;}table.itemlist a:link, .even a:visited, .odd a:visited{color: green;}");
@@ -207,14 +208,14 @@ $(document).ready(function(){
             //GM_log('do nothing');
         }
     }
-
+ 
     function prevNext() {
         inPage = $('.pager tbody tr td');
         prev = inPage.find('input[value="Prev"]');
         next = inPage.find('input[value="Next"]');
         newTopic = inPage.find('input[value="Start a Topic"]');
         goForum = inPage.find('input[value="Go"]');
-
+ 
         prev.each(function () {
             if (!$(this).is(':disabled')) {
                 var url = /^document\.location\.href\=\'(.*)\'/.exec($(this).attr('onclick'))[1];
@@ -239,18 +240,18 @@ $(document).ready(function(){
                 });
             } else $(this).remove();
         });
-
+ 
         newTopic.each(function () {
             var url = /^document\.location\.href\=\'(.*)\'/.exec($(this).attr('onclick'))[1];
             var link = $('<a/>').prop('href', url).text('Create New Topic');
             $(this).replaceWith(link);
         });
-
+ 
         goForum.each(function () {
             $(this).remove();
         });
     }
-
+ 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scrollup').fadeIn();
@@ -258,14 +259,14 @@ $(document).ready(function(){
             $('.scrollup').fadeOut();
         }
     });
-
+ 
     $('.scrollup').click(function () {
         $("html, body").animate({
             scrollTop: 0
         }, 600);
         return false;
     });
-
+ 
     Mousetrap.bind('esc', function () {
         window.location = "#close";
     });
