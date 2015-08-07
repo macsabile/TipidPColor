@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     checkSavedSettings();
 
-    var ver = 'v1.1.9';
+    var ver = 'v1.1.10';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
