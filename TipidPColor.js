@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.1.9
-// @date       05-29-2015
+// @version    1.1.10
+// @date       08-08-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -13,12 +13,8 @@
 // @grant      GM_setValue
 // @grant      GM_log
 // @run-at     document-end
-// @homepageURL https://monkeyguts.com/code.php?id=219
-// @updateURL   https://monkeyguts.com/219.meta.js?c
-// @downloadURL https://monkeyguts.com/219.user.js?c
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
-// @require     http://cdn.craig.is/js/mousetrap/mousetrap.min.js
-// @icon        https://monkeyguts.com/icon/219.png
+// @require     https://greasyfork.org/scripts/11549-mousetrapv1-5-3/code/mousetrapv153.js?version=66528
 // ==/UserScript==
 
 
@@ -86,7 +82,7 @@ $(document).ready(function () {
         if (announcementValue == '1') {
             selectID('#rdHideAnnouncementYes');
             $("#announcement").remove();
-            //$("#banner_big").remove();
+            $("#google_ads_div_TipidPC_leaderboard_ad_wrapper").remove();
         } else selectID('#rdHideAnnouncementNo');
 
         //reload items and bookmarks

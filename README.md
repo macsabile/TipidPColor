@@ -17,6 +17,11 @@ Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to 
 
 <b>Changelog:</b>
 
+
+v1.1.10
+- update the library source
+- minor bug fixes
+
 v1.1.9
 - bug fixed in countdown timer
 
