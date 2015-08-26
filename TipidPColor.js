@@ -2,7 +2,7 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.1.10
-// @date       08-08-2015
+// @date       08-25-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     checkSavedSettings();
 
-    var ver = 'v1.1.10';
+    var ver = 'v1.1.10 (082515)';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
@@ -31,6 +31,7 @@ $(document).ready(function () {
     var buddiesValue = GM_getValue('offBuddies');
     var intervalNum = GM_getValue('countDown');
     var announcementValue = GM_getValue('HideAnnouncement');
+    var tpcOpt = 0;
 
     optionsWindow();
     setSavedSettings();
@@ -265,8 +266,20 @@ $(document).ready(function () {
 
     Mousetrap.bind('esc', function () {
         window.location = "#close";
+	tpcOpt = 0;
     });
     Mousetrap.bind('f8', function () {
-        window.location = "#tpcolorOptions";
+        if (tpcOpt == 0) {
+            window.location = "#tpcolorOptions";
+            tpcOpt = 1;
+        }
+        else {
+            window.location = "#close";
+            tpcOpt = 0;
+        }
+        //GM_log(tpcOpt);
+    });
+    Mousetrap.bind('f9', function () {
+        window.location = "itemmanager.php";
     });
 });
