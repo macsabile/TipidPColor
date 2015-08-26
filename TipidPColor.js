@@ -15,6 +15,7 @@
 // @run-at     document-end
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @require     https://greasyfork.org/scripts/11549-mousetrapv1-5-3/code/mousetrapv153.js?version=66528
+// @require     https://raw.githubusercontent.com/macsabile/TipidPColor/master/latestVersion.js
 // ==/UserScript==
 
 
