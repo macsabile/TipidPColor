@@ -23,7 +23,6 @@ v1.2.0
 
 v1.1.10 
 - update the library source
-- update the 'f8' keyboard shortcut function 
 - minor bug fixes
 
 v1.1.9
