@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.1.10
+// @version    1.2.0
 // @date       08-25-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
@@ -22,8 +22,8 @@
 $(document).ready(function () {
 
     checkSavedSettings();
-
-    var ver = 'v1.1.10 (082515)';
+ 
+    var ver = '1.2.0';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
@@ -34,10 +34,17 @@ $(document).ready(function () {
     var announcementValue = GM_getValue('HideAnnouncement');
     var tpcOpt = 0;
 
+    checkUpdates();
     optionsWindow();
     setSavedSettings();
     prevNext();
     getUnreadCount();
+    
+    function checkUpdates() {
+        var newUpdate = latestVersion;
+        if (newUpdate != ver) ver = 'v' + ver + ' (Update Available v' + latestVersion + ')';
+        else ver = 'v' + ver;
+    }
 
     function optionsWindow() {
 
