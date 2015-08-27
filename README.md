@@ -19,7 +19,7 @@ Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to 
 
 v1.2.0
 - update the 'F8' keyboard shortcut function
-- add small code for checking new updates
+- small bug fixes
 
 v1.1.10 
 - update the library source
