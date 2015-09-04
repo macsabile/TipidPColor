@@ -27,6 +27,7 @@ v1.1.10
 
 v1.1.9
 - bug fixed in countdown timer
+- transfer to Greasy Fork (080715)
 
 v1.1.8
 - minor bug fixes
