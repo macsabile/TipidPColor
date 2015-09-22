@@ -2,3 +2,8 @@
 - hide / unhide post of a user
 - advanced options
 - icon
+
+function selectionChange() {
+         $(".note").show();
+        $(".note").fadeTo("slow", 0);
+    }
