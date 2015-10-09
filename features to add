@@ -2,6 +2,7 @@
 - hide / unhide post of a user
 - advanced options
 - icon
+- add more themes
 
 function selectionChange() {
          $(".note").show();
