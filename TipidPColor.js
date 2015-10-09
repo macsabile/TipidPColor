@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.2.1
-// @date       09-07-2015
+// @version    1.2.3
+// @date       10-09-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -23,8 +23,8 @@ $(document).ready(function () {
 
     checkSavedSettings();
  
-    var ver = '1.2.1';
-    var build = '090715-1';
+    var ver = '1.2.3';
+    var build = '100915-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
