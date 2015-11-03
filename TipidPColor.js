@@ -12,6 +12,7 @@
 // @grant      GM_getValue
 // @grant      GM_setValue
 // @grant      GM_log
+// @license    MIT License
 // @run-at     document-end
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @require     https://greasyfork.org/scripts/11549-mousetrapv1-5-3/code/mousetrapv153.js
