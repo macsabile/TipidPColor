@@ -23,8 +23,8 @@ $(document).ready(function () {
 
     checkSavedSettings();
  
-    var ver = '1.2.3';
-    var build = '100915-1';
+    var ver = '1.2.4';
+    var build = '110315-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
