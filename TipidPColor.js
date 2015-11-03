@@ -2,7 +2,7 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.2.3
-// @date       10-09-2015
+// @date       11-03-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
