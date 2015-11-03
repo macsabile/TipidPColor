@@ -25,6 +25,9 @@ Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to 
 
 <b>Changelog:</b>
 
+v1.2.4
+- minor bug fixes
+
 v1.2.3
 - update the scroll up icon
 - update and change the versioning number
