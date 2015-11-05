@@ -25,6 +25,9 @@ Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to 
 
 <b>Changelog:</b>
 
+v.1.2.5
+- small CSS changes
+
 v1.2.4
 - minor bug fixes
 
