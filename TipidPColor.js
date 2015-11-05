@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       TipidPColor
-// @namespace   1a004cac1b5d07d47bf96329db466117
+// @namespace   tpcolor
 // @version    1.2.5
 // @date       11-05-2015
 // @author      mac9erd
