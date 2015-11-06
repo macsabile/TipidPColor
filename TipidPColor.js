@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.2.5
-// @date       11-05-2015
+// @version    1.2.6
+// @date       11-06-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      http://*.tipidpc.com/* 
@@ -24,8 +24,8 @@ $(document).ready(function () {
 
     checkSavedSettings();
  
-    var ver = '1.2.5';
-    var build = '110515-1';
+    var ver = '1.2.6';
+    var build = '110615-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var refreshPageValue = GM_getValue('RefreshItemsAndBookmarks');
@@ -140,6 +140,10 @@ $(document).ready(function () {
         var title = $('title').text();
         if (post) {
             $('title').html('(' + parseInt(post) + ') ' + title + '');
+            $(".alertbox").append('<div class="countText"></div>');
+        }
+        else {
+            $(".normalbox").append('<div class="countText"></div>');
         }
     }
 
@@ -196,13 +200,13 @@ $(document).ready(function () {
 
         if (refreshPageValue == '1') {
             $('head').append(countDownTimer);
-            $(".alertbox").append('<p id="textNum">This page will reload in <span id="countdown">15</span> second/s.</p>');
+            $(".countText").append('<p id="textNum">This page will reload in <span id="countdown">15</span> second/s.</p>');
             setTimeout(function () {
                 window.location.reload(1);
             }, 15000);
         } else if (refreshPageValue == '2') {
             $('head').append(countDownTimer);
-            $(".alertbox").append('<p id="textNum">This page will reload in <span id="countdown">30</span> second/s.</p>');
+            $(".countText").append('<p id="textNum">This page will reload in <span id="countdown">30</span> second/s.</p>');
             setTimeout(function () {
                 window.location.reload(1);
             }, 30000);
