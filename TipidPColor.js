@@ -99,6 +99,7 @@ $(document).ready(function () {
             selectID('#rdHideAnnouncementYes');
             $("#announcement").remove();
             $("#google_ads_div_TipidPC_leaderboard_ad_wrapper").remove();
+            $("#banner_big").remove();
         } else selectID('#rdHideAnnouncementNo');
 
         //reload items and bookmarks
