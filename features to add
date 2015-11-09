@@ -3,6 +3,7 @@
 - advanced options
 - icon
 - add more themes
+- to update some function and bug fixes introduce by new site updates (11-09-15)
 
 function selectionChange() {
          $(".note").show();
