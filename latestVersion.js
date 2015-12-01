@@ -1,2 +1,2 @@
-var latestVersion = "1.2.6";
-var buildNumber = "110615-1";
+var latestVersion = "1.3";
+var buildNumber = "120115-1";
