@@ -12,8 +12,6 @@ Features:
 - Hide/Show offline buddies
 - Hide/Show banner and announcements
 - Keyboard shortcut to previous page and next page in forum topic/item search using left/right arrow
-- Countdown timer in Items and Bookmarks page (set 15s or 30s to auto reload)
-- Show the number of unread bookmark topic in title bar
 - Change the font-size of forum post or reply
 - Change the color of navigation bar, alert box, and many more..
 
