@@ -5,8 +5,8 @@
 // @date       12-03-2015
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
-// @match      http*://*.tipidpc.com/* 
-// @match      http*://*.tipidcp.com/* 
+// @match      https://*.tipidpc.com/* 
+// @match      http://*.tipidcp.com/* 
 // @copyright  mac9erd 2014
 // @grant      GM_addStyle
 // @grant      GM_getValue
