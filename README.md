@@ -44,6 +44,7 @@ v1.2.3
 
 v1.2.2
 - update the 'F8' keyboard shortcut function
+- add a keyboard shortcut (F9) to open Bookmark and Item Manager Page
 - small bug fixes
 
 v1.2.1
