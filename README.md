@@ -24,6 +24,7 @@ Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to 
 <b>Changelog:</b>
 
 v.1.3
+- add Disable Pop-up Notification function
 - remove the option to auto reload the Items and Bookmarks Page/Tab
 - remove countDownTimer function
 - remove getUnreadCount function
