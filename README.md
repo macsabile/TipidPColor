@@ -22,7 +22,7 @@ Features:
 
 
 
-How to install:
+<b>How to install:</b>
 
 1. Install <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/" target="_bank">Greasemonkey</a> (for Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_bank">Tampermonkey</a> (for Chrome).
 
