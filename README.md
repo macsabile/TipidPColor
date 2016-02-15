@@ -19,7 +19,18 @@ Features:
 
 <img src="http://i.imgur.com/lG3to25.jpg">
 
-Click <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor">here</a> to install.
+
+
+
+How to install:
+
+1. Install <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/" target="_bank">Greasemonkey</a> (for Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_bank">Tampermonkey</a> (for Chrome).
+
+2. Restart browser if needed.
+
+3. Go to <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor" target="_bank">Greasyfork</a> and click install.
+
+
 
 <b>Changelog:</b>
 
