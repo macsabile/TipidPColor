@@ -19,7 +19,7 @@ Features:
 
 <img src="http://i.imgur.com/lG3to25.jpg">
 
-<a href="http://i.imgur.com/lG3to25.jpg" target="_blank">image url</a>
+<a href="http://i.imgur.com/lG3to25.jpg" target="_blank">Image Url</a>
 
 
 <b>How to install:</b>
