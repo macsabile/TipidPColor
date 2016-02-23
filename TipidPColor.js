@@ -59,7 +59,7 @@ $(document).ready(function () {
     }
 
     function checkSavedSettings() {
-        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '1');
+        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '0');
        //if (GM_getValue('offBuddies', -5) == -5) GM_setValue('offBuddies', '0');
         if (GM_getValue('forumPostFontSize', -5) == -5) GM_setValue('forumPostFontSize', '1');
         if (GM_getValue('siteThemes', -5) == -5) GM_setValue('siteThemes', '1');
