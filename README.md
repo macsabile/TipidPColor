@@ -9,8 +9,6 @@ Features:
 
 - Themes
 - Hide/Show website logo
-- Hide/Show offline buddies
-- Hide/Show banner and announcements
 - Keyboard shortcut to previous page and next page in forum topic/item search using left/right arrow
 - Change the font-size of forum post or reply
 - Change the color of navigation bar, alert box, and many more..
