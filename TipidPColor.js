@@ -2,7 +2,7 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.3
-// @date       02-22-2016
+// @date       02-23-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      https://*.tipidpc.com/* 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3';
-    var build = '022315-1';
+    var build = '022315-2';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     function optionsWindow() {
 
-        var globalCSS = '<style>body{margin:0 auto;padding:0;background:##303030;width:100%}#container{margin: 0 auto;max-width: 1280px;}p.caption{margin: 10px;padding: 0;}#nav{padding: 15px 0 15px 10px;}#textNum{text-align: center;padding: 0;margin: 0;}div#notifications {z-index: 11;}input[type="button"] {border: none;cursor: pointer;padding: 5px 20px;font-weight: bold;}input[type="submit"] {border: none;cursor: pointer;padding: 7px 25px;font-weight: bold;}</style>';
+        var globalCSS = '<style>body{margin:0 auto;padding:0;background:#303030;width:100%}#container{margin: 0 auto;max-width: 1280px;}p.caption{margin: 10px;padding: 0;}#nav{padding: 15px 0 15px 10px;}#textNum{text-align: center;padding: 0;margin: 0;}div#notifications {z-index: 11;}input[type="button"] {border: none;cursor: pointer;padding: 5px 20px;font-weight: bold;}input[type="submit"] {border: none;cursor: pointer;padding: 7px 25px;font-weight: bold;}</style>';
         
         var customCSS = '<style>.modal-container{font-size:15px!important;position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:10;opacity:0;-webkit-transition:opacity 400ms ease-in;-moz-transition:opacity 400ms ease-in;transition:opacity 400ms ease-in;pointer-events:none}.modal-container:target{opacity:1;pointer-events:auto}.modal-dialog{width:510px;position:relative;margin:10% auto;padding:1px;border-radius:5px;background:#fff}.modal-header{background:#8bc34a;color:#fff;padding:5px;border-top-left-radius:5px;border-top-right-radius:5px}.modal-header h1{font-size:12px;padding-left:5px}.modal-body{height:260px;padding:20px 10px 0;border-bottom:1px solid #eee}.modal-footer{text-align:right;padding:5px 5px 5px 0}.modal-footer a#refresh,.modal-header a{color:#fff!Important}.version{color:#9e9e9e;font-size:10px;text-decoration:none;position:absolute;left:15px;bottom:15px}.btn-cancel,.btn-save{text-decoration:none!Important;display:inline-block;font-size:14px;padding:8px 15px;text-align:center;min-width:60px;position:relative;transition:color .1s ease}.btn-save{background:#8bc34a;border:1px solid #8bc34a;border-radius:3px;color:#fff!Important}.btn-save:hover{background:#7cb342;border:1px solid #7cb342;border-radius:3px;color:#fff}.btn-cancel{background:#e0e0e0;border:1px solid #e0e0e0;border-radius:3px;color:#424242!Important}.btn-cancel:hover{background:#bdbdbd;border:1px solid #bdbdbd;border-radius:3px;color:#fff}.btn-close{color:#fff!Important;font-size:20px;text-decoration:none!Important;position:absolute;right:15px;top:10px}table,tr{border-style:none}table th.title{width:300px;text-align:left}p.note{color:red;padding:0 0 20px;margin:0 auto;font-size:14px;text-align:center}.scrollup{width:21px;height:21px;text-indent:-9999px;z-index:9999;opacity:.5;position:fixed;bottom:40px;right:20px;display:none;background:url(https://raw.githubusercontent.com/macsabile/TipidPColor/master/scrollUp.png) no-repeat}.scrollup:hover{opacity:1}</style>';
 
@@ -55,11 +55,11 @@ $(document).ready(function () {
         var topLink = $("#content_left a[href^='forums.php']");
         if (topLink.length > 0) {
             $("<div />").append(dialogTrigger).insertAfter(topLink.parent());
-        } //else $('#nav').append(dialogTrigger);
+        } else $('#nav').append(dialogTrigger);
     }
 
     function checkSavedSettings() {
-        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '0');
+        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '1');
        //if (GM_getValue('offBuddies', -5) == -5) GM_setValue('offBuddies', '0');
         if (GM_getValue('forumPostFontSize', -5) == -5) GM_setValue('forumPostFontSize', '1');
         if (GM_getValue('siteThemes', -5) == -5) GM_setValue('siteThemes', '1');
@@ -73,6 +73,7 @@ $(document).ready(function () {
             selectID('#rdHideSiteLogoYes');
             $("#logo").remove();
             $("#banner_top").remove();
+            GM_addStyle("#layout{margin:20px 0 0;}");
         } else selectID('#rdHideSiteLogoNo');
 
         //hide offline buddies
@@ -167,7 +168,7 @@ $(document).ready(function () {
         if (name == "light-green") {
             GM_addStyle("img{max-width:100%}a:link{color:#259b24}#nav a:hover,a:hover{color:#0d5302;text-decoration:none}div#notifications{background:#f36c60;border:1px solid #f36c60;color:#fff}#nav,div.window.itembrowser{background:#8bc34a}ul.forumtopics h4 a,ul.forumtopics h4 a:visited{color:green}span.pageBorder{border:1px solid #a7a7a7;padding:2px}#banner_big,#layout #left,#layout #right,#nav{border:0}h2.forumsection a,h2.forumsection a:visited{color:#428EFF}#buddies li.online a.prlink{color:#9b59b6;font-weight:700;font-size:11px}h1.topictitle{font-size:14px;color:#428EFF}#nav{font-size:medium}.flagged td,.new td{background:#B9DFBA;color:#fff;border:1px solid #27ae60}.premium{background:#E7EEFF;color:#F72A2A;border:1px solid #5A88FF}a,a:visited{color:#0d5302}.even a:visited,.odd a:visited,table.itemlist a:link{color:green}");
         } else if (name == "night") {
-            GM_addStyle("a,a:hover,a:visited{text-decoration:none}body{margin:0 auto;padding:0;background:#263238;width:100%}img{max-width:100%}blockquote a{color:#D82945}div.normalbox{color:#000}p.itemmeta{background:#224044;border:none}#banner_big,#layout #left,#layout #right,#nav{border:0}ul.catlist td.catprice{color:#F4F4F4}h1.itemname,h2.itemprice{color:#fff}#nav{background:#263238;font-size:medium}#banner_big,#layout{background:#455a64}div#notifications{background:#4db6ac;border:1px solid #4db6ac;color:#fff}div.window,div.window.itembrowser,td.window{background:#455a64;color:#fff;border:1px solid #cfd8dc}h3.wintitle{color:#fff}div.postcontent,ul.posts li{background:#455a64;color:#fff}ul.posts li{border:1px solid #cfd8dc}blockquote{border:0;background:#b0bec5;color:#000;font-style:italic}div.postcontent{border-left:0;border-right:0;border-bottom:0}h1.topictitle{color:#fff}a,a:visited{color:#cfd8dc}.flagged td a,.new td a,a:hover{color:#fff}.flagged td a:hover,.new td a:hover{color:#cfd8dc}.flagged td,.new td{background:#4db6ac;border:1px solid #009688}.odd,.odd td{border:1px solid #999;background:#78909c}.odd a,.odd td a{color:#fff!Important}.odd a:hover,.odd td a:hover{color:#cfd8dc!Important}.even,.even td{background:#455a64;border:1px solid #999}.even a,.even td a{color:#fff!Important}.even a:hover,.even td a:hover{color:#cfd8dc!Important}#announcement{background:#b2dfdb}#announcement a{color:green}.premium{background:#cfd8dc;border:1px solid #009688}.btn-save,.btn-save:hover{border:1px solid #607d8b}.btn-save,.modal-header{background:#263238}.premium a{color:#009688}.premium a:hover{color:#607d8b}.btn-save:hover{background:#607d8b}span,td,td p{color:#fff}.modal-container td,table.pager td a{color:#000}table.pager td a:hover{color:#259b24}");
+            GM_addStyle("a,a:hover,a:visited{text-decoration:none}img{max-width:100%}blockquote a{color:#D82945}div.normalbox{color:#000}p.itemmeta{background:#224044;border:none}#banner_big,#layout #left,#layout #right,#nav{border:0}ul.catlist td.catprice{color:#F4F4F4}h1.itemname,h2.itemprice{color:#fff}#nav{background:#263238;font-size:medium}#banner_big,#layout{background:#455a64}div#notifications{background:#4db6ac;border:1px solid #4db6ac;color:#fff}div.window,div.window.itembrowser,td.window{background:#455a64;color:#fff;border:1px solid #cfd8dc}a.cta.forum{background: #009688;}h3.wintitle{color:#fff;background: #009688;}div.postcontent,ul.posts li{background:#455a64;color:#fff}ul.posts li{border:1px solid #cfd8dc}blockquote{border:0;background:#b0bec5;color:#000;font-style:italic}div.postcontent{border-left:0;border-right:0;border-bottom:0}h1.topictitle{color:#fff}a,a:visited{color:#cfd8dc}.flagged td a,.new td a,a:hover{color:#fff}.flagged td a:hover,.new td a:hover{color:#cfd8dc}.flagged td,.new td{background:#4db6ac;border:1px solid #009688}.odd,.odd td{border:1px solid #999;background:#78909c}.odd a,.odd td a{color:#fff!Important}.odd a:hover,.odd td a:hover{color:#cfd8dc!Important}.even,.even td{background:#455a64;border:1px solid #999}.even a,.even td a{color:#fff!Important}.even a:hover,.even td a:hover{color:#cfd8dc!Important}#announcement{background:#b2dfdb}#announcement a{color:green}.premium{background:#cfd8dc;border:1px solid #009688}.btn-save,.btn-save:hover{border:1px solid #607d8b}.btn-save,.modal-header{background:#263238}.premium a{color:#009688}.premium a:hover{color:#607d8b}.btn-save:hover{background:#607d8b}span,td,td p{color:#fff}.modal-container td,table.pager td a{color:#000}table.pager td a:hover{color:#259b24}");
         } else {
             //GM_log('do nothing');
         }
