@@ -19,7 +19,7 @@ Features:
 
 <img src="http://i.imgur.com/lG3to25.jpg">
 
-
+<a href="http://i.imgur.com/lG3to25.jpg" target="_blank">image url</a>
 
 
 <b>How to install:</b>
@@ -33,6 +33,14 @@ Features:
 
 
 <b>Changelog:</b>
+
+v1.3.1 
+- remove offBuddies function
+- change container to margin: auto 0
+- change body background to #303030
+- set p.cation margin to 10px
+- change TipidPColor Options position
+- add margin-top when logo is hide
 
 v1.3
 - add Disable Pop-up Notification function
