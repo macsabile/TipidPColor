@@ -34,7 +34,7 @@ Features:
 
 v1.3.1 
 - remove offBuddies function (re-enable in Build 022416-2)
-- change container to margin: auto 0, max-width: 1280px
+- change container margin to auto 0 and max-width to 1380px
 - change body background to #303030
 - set p.cation margin to 10px
 - change TipidPColor Options position
