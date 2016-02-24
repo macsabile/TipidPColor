@@ -33,7 +33,7 @@ Features:
 <b>Changelog:</b>
 
 v1.3.1 
-- remove offBuddies function (re-enable in Build 022415-2)
+- remove offBuddies function (re-enable in Build 022416-2)
 - change container to margin: auto 0, max-width: 1280px
 - change body background to #303030
 - set p.cation margin to 10px
