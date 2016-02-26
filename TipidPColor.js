@@ -53,10 +53,10 @@ $(document).ready(function () {
         $('head').append(customCSS);
         $('body').append(settingDialog);
 
-        var topLink = $("#left a[href^='forums.php']");
+        var topLink = $("#left a[href^='newitem.php']");
         if (topLink.length > 0) {            
             $("<div />").append(dialogTrigger).insertAfter(topLink.parent());
-        } else $('#nav').append(dialogTrigger);
+        } else $("<div />").append(dialogTrigger).insertAfter("#left a[href^='signup.php']");
     }
 
     function checkSavedSettings() {
