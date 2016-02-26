@@ -154,8 +154,8 @@ $(document).ready(function () {
 
     $('.rdForumPostSize').change(function () {
         var val = $("input[name=fontSize]:checked").val();
-        if (val == '12') GM_setValue('forumPostFontSize', '1');
-        else if (val == '15') GM_setValue('forumPostFontSize', '2');
+        if (val == '15') GM_setValue('forumPostFontSize', '1');
+        else if (val == '17') GM_setValue('forumPostFontSize', '2');
         else GM_setValue('forumPostFontSize', '0');
     });
 
