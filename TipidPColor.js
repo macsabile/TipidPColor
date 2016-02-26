@@ -30,7 +30,7 @@ $(document).ready(function () {
     var forumPostValue = GM_getValue('forumPostFontSize');
     var siteThemesValue = GM_getValue('siteThemes');
     var buddiesValue = GM_getValue('offBuddies');
-    var announcementValue = GM_getValue('HideAnnouncement');
+    //var announcementValue = GM_getValue('HideAnnouncement');
     var notifValue = GM_getValue('PopNotif');
     var tpcOpt = 0;
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
        if (GM_getValue('offBuddies', -5) == -5) GM_setValue('offBuddies', '0');
         if (GM_getValue('forumPostFontSize', -5) == -5) GM_setValue('forumPostFontSize', '0');
         if (GM_getValue('siteThemes', -5) == -5) GM_setValue('siteThemes', '1');
-        if (GM_getValue('HideAnnouncement', -5) == -5) GM_setValue('HideAnnouncement', '0');
+        //if (GM_getValue('HideAnnouncement', -5) == -5) GM_setValue('HideAnnouncement', '0');
         if (GM_getValue('PopNotif', -5) == -5) GM_setValue('PopNotif', '0');
     }
 
