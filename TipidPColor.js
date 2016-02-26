@@ -24,7 +24,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.1';
-    var build = '022616-2';
+    var build = '022616-3';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -47,21 +47,22 @@ $(document).ready(function () {
         var settingDialog = '<div id="tpcolorOptions" class="modal-container"> <div class="modal-dialog"> <div class="modal-header"> <h1>TipidPColor Options</h1> <a href="#close" class="btn-close" aria-hidden="true">×</a> </div><div class="modal-body"> <p class="note">Changes are saved immediately and applied on next page load.</p><table> <tr> <th class="title"></th> <th class=""></th> </tr><tr> <td>Hide site logo</td><td> <label> <input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoYes" value="yes">Yes</label> <label> <input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoNo" value="no">No</label> </td></tr><tr> <td>Hide offline buddies</td><td> <label> <input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineYes" value="yes">Yes</label> <label> <input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineNo" value="no">No</label> </td></tr><tr> <td>Hide banner and announcements</td><td> <label> <input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementYes" value="yes">Yes</label> <label> <input type="radio" name="mAnnouncement" class="rdHideAnnouncement" id="rdHideAnnouncementNo" value="no">No</label> </td></tr><tr><td>Disable Pop-up Notification</td><td><label><input type="radio" name="mNotif" class="rdPopNotif" id="rdPopNotifYes" value="yes">Yes</label><label><input type="radio" name="mNotif" class="rdPopNotif" id="rdPopNotifNo" value="no">No</label></td></tr><tr> <td>Forum post font-size</td><td> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSizeDefault" value="deafault">default</label> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize12px" value="12">12px</label> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize15px" value="15">15px</label> </td></tr><tr> <td> <br></td><td> </td></tr><tr> <td>Themes</td><td> <label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesDefault" value="default">Default</label> <br><label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesLight" value="light-green">Light-green</label> <br><label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesNight" value="night">Dark</label> </td></tr></table> </div><div class="modal-footer"> <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor" title="Check for updates" target="_blank"><span class="version">' + ver + ' build '+ build +'</span></a> <a href="" id="refresh" class="btn-save">Refresh</a> </div></div></div><a href="#" class="scrollup" title="Scroll to Top">Scroll to Top</a>';
 
         var dialogTrigger = '<a class="cta" href="#tpcolorOptions">TipidPColor Options</a>';
+        
 
         $('head').append(globalCSS);
         $('head').append(customCSS);
         $('body').append(settingDialog);
 
         var topLink = $("#left a[href^='forums.php']");
-        if (topLink.length > 0) {
+        if (topLink.length > 0) {            
             $("<div />").append(dialogTrigger).insertAfter(topLink.parent());
         } else $('#nav').append(dialogTrigger);
     }
 
     function checkSavedSettings() {
-        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '1');
+        if (GM_getValue('HideSiteLogo', -5) == -5) GM_setValue('HideSiteLogo', '0');
        if (GM_getValue('offBuddies', -5) == -5) GM_setValue('offBuddies', '0');
-        if (GM_getValue('forumPostFontSize', -5) == -5) GM_setValue('forumPostFontSize', '1');
+        if (GM_getValue('forumPostFontSize', -5) == -5) GM_setValue('forumPostFontSize', '0');
         if (GM_getValue('siteThemes', -5) == -5) GM_setValue('siteThemes', '1');
         if (GM_getValue('HideAnnouncement', -5) == -5) GM_setValue('HideAnnouncement', '0');
         if (GM_getValue('PopNotif', -5) == -5) GM_setValue('PopNotif', '0');
@@ -74,6 +75,7 @@ $(document).ready(function () {
             $("#logo").remove();
             $("#banner_top").remove();
             GM_addStyle("#layout{margin:20px 0 0;}");
+            $("<div />").append('<a class="cta" href="/">Home</a>').insertBefore("#left a[href^='forums.php']");
         } else selectID('#rdHideSiteLogoNo');
 
         //hide offline buddies
