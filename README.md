@@ -36,8 +36,7 @@ v1.3.2
 - remove HideAnnouncement function
 - add home button when logo is hide
 - change font-size from 12 to 15 and 15 to 17
-- update Light-green themes
-- upadte Dark themes
+- update Light-green and Dark themes
 - minor changes
 
 v1.3.1 
