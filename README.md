@@ -32,6 +32,14 @@ Features:
 
 <b>Changelog:</b>
 
+v1.3.2
+- remove HideAnnouncement function
+- add home button when logo is hide
+- change font-size from 12 to 15 and 15 to 17
+- update Light-green themes
+- upadte Dark themes
+- minor changes
+
 v1.3.1 
 - remove offBuddies function (re-enable in Build 022416-2)
 - change container margin to auto 0 and max-width to 1380px
