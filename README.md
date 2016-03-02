@@ -1,10 +1,6 @@
 TipidPColor
 ===========
 
-
-I made this script for personal use but I want to share it with you.
-
-
 Features:
 
 - Themes
