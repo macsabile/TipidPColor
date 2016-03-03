@@ -25,17 +25,18 @@ Features:
 
 
 
+
 <b>Changelog:</b>
 
 v1.3.2
-- remove HideAnnouncement function
+- remove HideAnnouncement/Banner function
+- add Full Browser Width function (030316-1)
 - add home button when logo is hide
 - change font-size from 12 to 15 and 15 to 17
 - update Light-green and Dark themes
 - minor changes
 
 v1.3.1 
-- remove offBuddies function (re-enable in Build 022416-2)
 - change container margin to auto 0 and max-width to 1380px
 - change body background to #303030
 - set p.cation margin to 10px
