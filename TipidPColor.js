@@ -2,7 +2,7 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.3.2
-// @date       03-03-2016
+// @date       02-29-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      https://*.tipidpc.com/* 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.2';
-    var build = '030316-2';
+    var build = '022916-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -137,12 +137,6 @@ $(document).ready(function () {
         if (val == 'yes') GM_setValue('offBuddies', '1');
         else GM_setValue('offBuddies', '0');
     });
-
-    $('.rdFullwidth').change(function () {
-        var val = $("input[name=mFullwidth]:checked").val();
-        if (val == 'yes') GM_setValue('fullWidthBrowser', '1');
-        else GM_setValue('fullWidthBrowser', '0');
-    });
     
     $('.rdPopNotif').change(function () {
         var val = $("input[name=mNotif]:checked").val();
@@ -162,6 +156,12 @@ $(document).ready(function () {
         if (val == 'light-green') GM_setValue('siteThemes', '1');
         else if (val == 'night') GM_setValue('siteThemes', '2');
         else GM_setValue('siteThemes', '0');
+    });
+    
+    $('.rdFullwidth').change(function () {
+        var val = $("input[name=mFullwidth]:checked").val();
+        if (val == 'yes') GM_setValue('fullBrowserWidth', '1');
+        else GM_setValue('fullBrowserWidth', '0');
     });
 
     function chooseTheme(name) {
