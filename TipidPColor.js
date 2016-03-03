@@ -24,7 +24,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.2';
-    var build = '030316-1';
+    var build = '030316-2';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -113,7 +113,8 @@ $(document).ready(function () {
         //Full Browser Width
         if (fullWidthValue == '1') {
             selectID('#rdFullwidthYes');
-           GM_addStyle("body,#layout{background:#fcfcfc;}#container{background:#fcfcfc;max-width:100%;padding:0;}");
+            if(siteThemesValue == '2') GM_addStyle("body,#layout{background:#455a64;}#container{background:#455a64;max-width:100%;padding:0;}");
+            else GM_addStyle("body,#layout{background:#fcfcfc;}#container{background:#fcfcfc;max-width:100%;padding:0;}");   
         } else selectID('#rdFullwidthNo');
     }
 
