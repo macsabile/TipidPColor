@@ -2,7 +2,7 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.3.2
-// @date       03-03-2016
+// @date       03-04-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      https://*.tipidpc.com/* 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.2';
-    var build = '030316-2';
+    var build = '030416-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -250,5 +250,8 @@ $(document).ready(function () {
     });
     Mousetrap.bind('f9', function () {
         window.location = "itemmanager.php";
+    });
+    Mousetrap.bind('f10', function () {
+        window.location = "forumbookmarks.php";
     });
 });
