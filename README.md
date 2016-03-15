@@ -28,6 +28,11 @@ Features:
 
 <b>Changelog:</b>
 
+
+v1.3.3
+- minor changes
+- update dark themes
+
 v1.3.2
 - remove HideAnnouncement/Banner function
 - add Full Browser Width function (030316-1)
