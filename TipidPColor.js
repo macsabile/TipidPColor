@@ -16,7 +16,6 @@
 // @run-at     document-end
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @require     https://greasyfork.org/scripts/11549-mousetrapv1-5-3/code/mousetrapv153.js
-// @require     https://greasyfork.org/scripts/11987-latestversion/code/latestVersion.js
 // ==/UserScript==
 
 $(document).ready(function () {
