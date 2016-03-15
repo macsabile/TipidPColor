@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.3.2
+// @version    1.3.3
 // @date       03-15-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     checkSavedSettings();
  
-    var ver = '1.3.2';
+    var ver = '1.3.3';
     var build = '031516-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
