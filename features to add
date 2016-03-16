@@ -7,3 +7,8 @@ function selectionChange() {
          $(".note").show();
         $(".note").fadeTo("slow", 0);
     }
+
+
+if (page == "forumbookmarks") {
+        $('.flagged a').attr('target', '_blank');    
+    }
