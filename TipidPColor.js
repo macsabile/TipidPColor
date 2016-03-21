@@ -73,7 +73,6 @@ $(document).ready(function () {
             selectID('#rdHideSiteLogoYes');
             $("#logo").remove();
             $("#banner_top").remove();
-            GM_addStyle("#layout{margin:20px 0 0;}");
             $("<div />").append('<a class="cta" href="/">Home</a>').insertBefore("#left a[href^='forums.php']");
         } else selectID('#rdHideSiteLogoNo');
 
