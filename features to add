@@ -10,5 +10,6 @@ function selectionChange() {
 
 
 if (page == "forumbookmarks") {
-        $('.flagged a').attr('target', '_blank');    
+        $('.flagged a').attr('target', '_blank');
+        $('.flagged a').attr('onClick', 'window.location.reload();');  
     }
