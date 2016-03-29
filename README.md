@@ -29,6 +29,10 @@ Features:
 <b>Changelog:</b>
 
 
+v1.3.4
+- add clicking options that open the updated forum topic in new window/tab (Forum Bookmark page)
+- minor code changes
+
 v1.3.3
 - minor changes
 - update dark themes
