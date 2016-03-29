@@ -31,6 +31,7 @@ $(document).ready(function () {
     var buddiesValue = GM_getValue('offBuddies');
     var fullWidthValue = GM_getValue('fullBrowserWidth');
     var notifValue = GM_getValue('PopNotif');
+    var flaggedTopicValue = GM_getValue('ForumTopic');
     var tpcOpt = 0;
 
     optionsWindow();
@@ -65,6 +66,7 @@ $(document).ready(function () {
         if (GM_getValue('siteThemes', -5) == -5) GM_setValue('siteThemes', '1');
         if (GM_getValue('fullBrowserWidth', -5) == -5) GM_setValue('fullBrowserWidth', '0');
         if (GM_getValue('PopNotif', -5) == -5) GM_setValue('PopNotif', '0');
+        if (GM_getValue('ForumTopic', -5) == -5) GM_setValue('ForumTopic', '0');
     }
 
     function setSavedSettings() {
@@ -99,6 +101,15 @@ $(document).ready(function () {
         } else {
             selectID('#rdForumPostSizeDefault');
         }
+        
+        //open flagged links in new tab
+        if (flaggedTopicValue == '1') {
+            selectID('#rdForumTopicYes');
+            if (page == "forumbookmarks") {        
+                $('.flagged a').attr('target', '_blank'); 
+                $('.flagged a').attr('onClick', 'window.location.reload();');  
+            }
+        } else selectID('#rdForumTopicNo');
 
         //themes
         if (siteThemesValue == '1') {
@@ -153,6 +164,13 @@ $(document).ready(function () {
         if (val == 'yes') GM_setValue('PopNotif', '1');
         else GM_setValue('PopNotif', '0');
     });
+    
+    $('.rdForumTopic').change(function () {
+        var val = $("input[name=mUpdatedTopic]:checked").val();
+        selectionChange();
+        if (val == 'yes') GM_setValue('ForumTopic', '1');
+        else GM_setValue('ForumTopic', '0');
+    });
 
     $('.rdForumPostSize').change(function () {
         var val = $("input[name=fontSize]:checked").val();
@@ -187,12 +205,7 @@ $(document).ready(function () {
         }
     }
     
-    if (page == "forumbookmarks") {
-        
-        $('.flagged a').attr('target', '_blank'); 
-        $('.flagged a').attr('onClick', 'window.location.reload();');  
-        
-    }
+    
 
     function prevNext() {
         inPage = $('.pager tbody tr td');
