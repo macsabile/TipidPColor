@@ -13,7 +13,7 @@
 // @grant      GM_setValue
 // @grant      GM_log
 // @license    GPLv3
-// @run-at     document-end
+// @run-at     document-start
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @require     https://greasyfork.org/scripts/11549-mousetrapv1-5-3/code/mousetrapv153.js
 // ==/UserScript==
@@ -23,7 +23,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.5b';
-    var build = '033016-1';
+    var build = '033016-2';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -37,6 +37,7 @@ $(document).ready(function () {
     optionsWindow();
     setSavedSettings();
     prevNext();
+    addNewPostID();
 
     function optionsWindow() {
 
@@ -105,7 +106,7 @@ $(document).ready(function () {
         if (flaggedTopicValue == '1') {
             selectID('#rdForumTopicYes');
             if (page == "forumbookmarks") {    
-                var target="#footer";
+                var target="#newpost";
                 $('.flagged a').attr('target', '_blank'); 
                 $('.flagged a').attr('onClick', 'window.location.reload();');
                 $('.flagged a').attr('href', function(i, currentAttribute){
@@ -208,7 +209,11 @@ $(document).ready(function () {
         }
     }
     
-    
+    function addNewPostID() {
+        if (page == "viewtopic") {  
+            $("li:last-child p.postmeta").attr("id","newpost");
+        }
+    }  
 
     function prevNext() {
         inPage = $('.pager tbody tr td');
