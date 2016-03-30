@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.3.4b
-// @date       03-29-2016
+// @version    1.3.5b
+// @date       03-30-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      https://*.tipidpc.com/* 
@@ -22,8 +22,8 @@ $(document).ready(function () {
 
     checkSavedSettings();
  
-    var ver = '1.3.4b';
-    var build = '032916-1';
+    var ver = '1.3.5b';
+    var build = '033016-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -75,7 +75,6 @@ $(document).ready(function () {
             selectID('#rdHideSiteLogoYes');
             $("#logo").remove();
             $("#banner_top").remove();
-            GM_addStyle("#layout{margin:20px 0 0;}");
             $("<div />").append('<a class="cta" href="/">Home</a>').insertBefore("#left a[href^='forums.php']");
         } else selectID('#rdHideSiteLogoNo');
 
@@ -105,9 +104,13 @@ $(document).ready(function () {
         //open flagged links in new tab
         if (flaggedTopicValue == '1') {
             selectID('#rdForumTopicYes');
-            if (page == "forumbookmarks") {        
+            if (page == "forumbookmarks") {    
+                var target="#footer";
                 $('.flagged a').attr('target', '_blank'); 
-                $('.flagged a').attr('onClick', 'window.location.reload();');  
+                $('.flagged a').attr('onClick', 'window.location.reload();');
+                $('.flagged a').attr('href', function(i, currentAttribute){
+                    return currentAttribute + target;
+                });
             }
         } else selectID('#rdForumTopicNo');
 
