@@ -23,7 +23,7 @@ $(document).ready(function () {
     checkSavedSettings();
  
     var ver = '1.3.5b';
-    var build = '033116-1';
+    var build = '033116-2';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
