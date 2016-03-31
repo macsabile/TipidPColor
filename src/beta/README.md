@@ -21,7 +21,7 @@ Features:
 
 2. Restart browser if needed.
 
-3. Go to <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor" target="_bank">Greasyfork</a> and click Install this script.
+3. Go to <a href="https://greasyfork.org/en/scripts/18382-tipidpcolor-beta" target="_bank">Greasyfork</a> and click Install this script.
 
 
 
