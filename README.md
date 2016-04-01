@@ -28,6 +28,8 @@ Features:
 
 <b>Changelog:</b>
 
+v1.3.5
+- add clicking options (go to new/last post)
 
 v1.3.4
 - add clicking options that open the updated forum topic in new window/tab (Forum Bookmark page)
