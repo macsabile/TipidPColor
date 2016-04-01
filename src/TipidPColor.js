@@ -72,7 +72,7 @@ $(document).ready(function () {
     }
 
     function setSavedSettings() {
-        //hide site logo
+        //show/hide site logo
         if (siteLogoValue == '1') {
             selectID('#rdHideSiteLogoYes');
             $("#logo").remove();
@@ -80,19 +80,19 @@ $(document).ready(function () {
             $("<div />").append('<a class="cta" href="/">Home</a>').insertBefore("#left a[href^='forums.php']");
         } else selectID('#rdHideSiteLogoNo');
 
-        //hide offline buddies
+        //show/hide offline buddies
         if (buddiesValue == '1') {
             selectID('#rdHideOfflineYes');
             $(".offline").remove();
         } else selectID('#rdHideOfflineNo');
         
-        //disable pop-up notifications
+        //enable/disable pop-up notifications
         if (notifValue == '1') {
             selectID('#rdPopNotifYes');
             GM_addStyle("div#notifications{display:none !Important;}");
         } else selectID('#rdPopNotifNo');
 
-        //forum post font-size
+       //change forum post font-size
         if (forumPostValue == '1') {
             selectID('#rdForumPostSize15px');
             GM_addStyle("div.postcontent {font-size: 15px;}");
@@ -103,7 +103,7 @@ $(document).ready(function () {
             selectID('#rdForumPostSizeDefault');
         }
         
-        //open flagged links in new tab
+        //enable/disable flagged links in new tab
         if (flaggedTopicValue == '1') {
             selectID('#rdForumTopicYes');
             if (page == "forumbookmarks") {    
@@ -124,7 +124,7 @@ $(document).ready(function () {
             }
         } else selectID('#rdLastPostNo');
 
-        //themes
+        //change themes
         if (siteThemesValue == '1') {
             selectID('#rdSiteThemesLight');
             chooseTheme('light-green');
@@ -133,7 +133,7 @@ $(document).ready(function () {
             chooseTheme('night');
         } else selectID('#rdSiteThemesDefault');
         
-        //Full Browser Width
+        //enable/disable Full Browser Width
         if (fullWidthValue == '1') {
             selectID('#rdFullwidthYes');
             if(siteThemesValue == '2') GM_addStyle("body,#layout{background:#455a64;}#container{background:#455a64;max-width:100%;padding:0;}");
@@ -221,7 +221,7 @@ $(document).ready(function () {
         } else if (name == "night") {
             GM_addStyle("a.cta:link, a.cta:visited, a.cta:hover, a.cta:active{background: #009688;}h2.usergroup{color:#f0f0f0;}p.usermeta{color:#666665;}.location{color:#F2E48F;}.announcement{border: 1px solid #FEE8A1;color: #FEE48F;}#frontlist strong {color: #F8ECCE;}.side-module label{color: #fff;}a,a:hover,a:visited{text-decoration:none}#bookmarks-manager li.flagged {background: #4db6ac;color: #E6E48F;border: 1px solid #4db6ac;}li.normal {background: #455A64 !IMPORTANT;}ul.forumtopics h4 a, ul.forumtopics h4 a:visited, h2.forumsection a, h2.forumsection a:visited{color: #4db6ac;}img{max-width:100%}blockquote a{color:#D82945}div.normalbox{color:#000}p.itemmeta{background:#224044;border:none}#banner_big,#layout #left,#layout #right,#nav{border:0}ul.catlist td.catprice{color:#F4F4F4}h1.itemname,h2.itemprice{color:#fff}#nav{background:#263238;font-size:medium}#banner_big,#layout{background:#455a64}div#notifications{background:#4db6ac;border:1px solid #4db6ac;color:#fff}div.window,div.window.itembrowser,td.window{background:#455a64;color:#fff;border:1px solid #999;}a.cta.forum{background: #009688;}h3.wintitle{color:#fff;background: #009688;}div.postcontent,ul.posts li{background:#455a64;color:#fff}ul.posts li{border:1px solid #999;}blockquote{border:0;background:#b0bec5;color:#000;font-style:italic}div.postcontent{border-left:0;border-right:0;border-bottom:0}h1.topictitle{color:#fff}a,a:visited{color:#cfd8dc}.flagged td a,.new td a,a:hover{color:#fff}.flagged td a:hover,.new td a:hover{color:#cfd8dc}.flagged td,.new td{background:#4db6ac;border:1px solid #009688}.odd,.odd td{border:1px solid #999;background:#78909c}.odd a,.odd td a{color:#fff!Important}.odd a:hover,.odd td a:hover{color:#cfd8dc!Important}.even,.even td{background:#455a64;border:1px solid #999}.even a,.even td a{color:#fff!Important}.even a:hover,.even td a:hover{color:#cfd8dc!Important}#announcement{background:#b2dfdb}#announcement a{color:green}.premium{background:#cfd8dc;border:1px solid #009688}.btn-save,.btn-save:hover{border:1px solid #607d8b}.btn-save,.modal-header{background:#263238}.premium a{color:#009688}.premium a:hover{color:#607d8b}.btn-save:hover{background:#607d8b}span,td,td p{color:#fff}.modal-container td,table.pager td a{color:#000}table.pager td a:hover{color:#259b24}");
         } else {
-            //GM_log('do nothing');
+            //do nothing
         }
     }
     
@@ -231,6 +231,9 @@ $(document).ready(function () {
         }
     }  
 
+    //add keyboard shortcut 'Left/Right arrow' - to previous page and next page in forum topic/item search results
+    //replace 'Start a Topic', 'Prev' and 'Next' button with a link
+    //remove 'Go' button
     function prevNext() {
         inPage = $('.pager tbody tr td');
         prev = inPage.find('input[value="Prev"]');
@@ -274,6 +277,7 @@ $(document).ready(function () {
         });
     }
 
+    //add scroll to top
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scrollup').fadeIn();
@@ -289,24 +293,29 @@ $(document).ready(function () {
         return false;
     });
 
+    //add keyboard shortcut 'Esc' - Close TipidPColor Options
     Mousetrap.bind('esc', function () {
         window.location = "#close";
-	tpcOpt = 0;
+        tpcOpt = 0;
     });
+    
+    //add keyboard shortcut 'F8' - Open/Close TipidPColor Options
     Mousetrap.bind('f8', function () {
         if (tpcOpt == 0) {
             window.location = "#tpcolorOptions";
             tpcOpt = 1;
-        }
-        else {
+        } else {
             window.location = "#close";
             tpcOpt = 0;
         }
-        //GM_log(tpcOpt);
     });
+    
+    //add keyboard shortcut 'F9' - Item Manager
     Mousetrap.bind('f9', function () {
         window.location = "itemmanager.php";
     });
+    
+    //add keyboard shortcut 'F10' - Forum Bookmarks
     Mousetrap.bind('f10', function () {
         window.location = "forumbookmarks.php";
     });
