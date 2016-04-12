@@ -2,11 +2,11 @@
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
 // @version    1.3.6
-// @date       04-02-2016
+// @date       04-12-2016
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
-// @match      https://*.tipidpc.com/* 
-// @match      http://*.tipidcp.com/* 
+// @match      https://*.tipidpc.com/*
+// @match      http://*.tipidcp.com/*
 // @copyright  mac9erd 2014
 // @grant      GM_addStyle
 // @grant      GM_getValue
@@ -20,9 +20,9 @@
 $(document).ready(function () {
 
     checkSavedSettings();
- 
+
     var ver = '1.3.6a';
-    var build = '040216-1';
+    var build = '041216-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -42,20 +42,20 @@ $(document).ready(function () {
     function optionsWindow() {
 
         var globalCSS = '<style>body{margin:0 auto;padding:0;background:#303030;width:100%}#container{margin: 0 auto;max-width: 1380px;padding: 0 15px;background:#303030;}p.caption{margin: 10px;padding: 0;}#nav{padding: 15px 0 15px 10px;}#textNum{text-align: center;padding: 0;margin: 0;}div#notifications {z-index: 11;}input[type="button"] {border: none;cursor: pointer;padding: 5px 20px;font-weight: bold;}input[type="submit"] {border: none;cursor: pointer;padding: 5px 25px;font-weight: bold;}</style>';
-        
+
         var customCSS = '<style>.modal-container{font-size:15px!important;position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:10;opacity:0;-webkit-transition:opacity 400ms ease-in;-moz-transition:opacity 400ms ease-in;transition:opacity 400ms ease-in;pointer-events:none}.modal-container:target{opacity:1;pointer-events:auto}.modal-dialog{width:510px;position:relative;margin:10% auto;padding:1px;border-radius:5px;background:#fff}.modal-header{background:#8bc34a;color:#fff;padding:5px;border-top-left-radius:5px;border-top-right-radius:5px}.modal-header h1{font-size:12px;padding-left:5px}.modal-body{height:300px;padding:20px 10px 0;border-bottom:1px solid #eee}.modal-footer{text-align:right;padding:5px 5px 5px 0}.modal-footer a#refresh,.modal-header a{color:#fff!Important}.version{color:#9e9e9e;font-size:10px;text-decoration:none;position:absolute;left:15px;bottom:15px}.btn-cancel,.btn-save{text-decoration:none!Important;display:inline-block;font-size:14px;padding:8px 15px;text-align:center;min-width:60px;position:relative;transition:color .1s ease}.btn-save{background:#8bc34a;border:1px solid #8bc34a;border-radius:3px;color:#fff!Important}.btn-save:hover{background:#7cb342;border:1px solid #7cb342;border-radius:3px;color:#fff}.btn-cancel{background:#e0e0e0;border:1px solid #e0e0e0;border-radius:3px;color:#424242!Important}.btn-cancel:hover{background:#bdbdbd;border:1px solid #bdbdbd;border-radius:3px;color:#fff}.btn-close{color:#fff!Important;font-size:20px;text-decoration:none!Important;position:absolute;right:15px;top:10px}table,tr{border-style:none}table th.title{width:300px;text-align:left}p.note{color:red;padding:0 0 20px;margin:18px auto;font-size:12px;text-align:center}.scrollup{width:21px;height:21px;text-indent:-9999px;z-index:9999;opacity:.5;position:fixed;bottom:40px;right:20px;display:none;background:url(https://raw.githubusercontent.com/macsabile/TipidPColor/master/src/img/scrollUp.png) no-repeat}.scrollup:hover{opacity:1}</style>';
 
         var settingDialog = '<div id="tpcolorOptions" class="modal-container"> <div class="modal-dialog"> <div class="modal-header"> <h1>TipidPColor Options</h1> <a href="#close" class="btn-close" aria-hidden="true">×</a> </div><div class="modal-body"> <table> <tr> <th class="title"></th> <th class=""></th> </tr><tr> <td>Hide site logo</td><td> <label> <input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoYes" value="yes">Yes</label> <label> <input type="radio" name="siteLogo" class="rdHideSiteLogo" id="rdHideSiteLogoNo" value="no">No</label> </td></tr><tr> <td>Hide offline buddies</td><td> <label> <input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineYes" value="yes">Yes</label> <label> <input type="radio" name="myBuddies" class="rdHideOffline" id="rdHideOfflineNo" value="no">No</label> </td></tr><tr> <td>Full Browser Width</td><td> <label> <input type="radio" name="mFullwidth" class="rdFullwidth" id="rdFullwidthYes" value="yes">Yes</label> <label> <input type="radio" name="mFullwidth" class="rdFullwidth" id="rdFullwidthNo" value="no">No</label> </td></tr> <tr><td>Disable Pop-up Notification</td><td><label><input type="radio" name="mNotif" class="rdPopNotif" id="rdPopNotifYes" value="yes">Yes</label><label><input type="radio" name="mNotif" class="rdPopNotif" id="rdPopNotifNo" value="no">No</label></td></tr> <tr><td>Open flagged links in a new tab (Forum Bookmarks)</td><td><label><input type="radio" name="mUpdatedTopic" class="rdForumTopic" id="rdForumTopicYes" value="yes">Yes</label><label><input type="radio" name="mUpdatedTopic" class="rdForumTopic" id="rdForumTopicNo" value="no">No</label></td></tr> <tr><td>and go to new/last post</td><td><label><input type="radio" name="mNewPost" class="rdLastPost" id="rdLastPostYes" value="yes">Yes</label><label><input type="radio" name="mNewPost" class="rdLastPost" id="rdLastPostNo" value="no">No</label></td></tr> <tr><td>Forum post font-size</td><td> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSizeDefault" value="deafault">default</label> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize15px" value="15">15px</label> <label> <input type="radio" name="fontSize" class="rdForumPostSize" id="rdForumPostSize17px" value="17">17px</label> </td></tr><tr> <td> <br></td><td> </td></tr><tr> <td>Themes</td><td> <label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesDefault" value="default">Default</label> <br><label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesLight" value="light-green">Light-green</label> <br><label> <input type="radio" name="selectThemes" class="rdSiteThemes" id="rdSiteThemesNight" value="night">Dark</label> </td></tr></table> <p class="note">Changes are saved immediately and applied on next page load.</p> </div><div class="modal-footer"> <a href="https://greasyfork.org/en/scripts/11550-tipidpcolor" title="Check for updates" target="_blank"><span class="version">' + ver + ' build '+ build +'</span></a> <a href="" id="refresh" class="btn-save">Refresh</a> </div></div></div><a href="#" class="scrollup" title="Scroll to Top">Scroll to Top</a>';
 
         var dialogTrigger = '<a class="cta" href="#tpcolorOptions">TipidPColor Options</a>';
-        
+
 
         $('head').append(globalCSS);
         $('head').append(customCSS);
         $('body').append(settingDialog);
 
         var topLink = $("#left a[href^='newitem.php']");
-        if (topLink.length > 0) {            
+        if (topLink.length > 0) {
             $("<div />").append(dialogTrigger).insertAfter(topLink.parent());
         } else $("<div />").append(dialogTrigger).insertAfter("#left a[href^='signup.php']");
     }
@@ -85,7 +85,7 @@ $(document).ready(function () {
             selectID('#rdHideOfflineYes');
             $(".offline").remove();
         } else selectID('#rdHideOfflineNo');
-        
+
         //enable/disable pop-up notifications
         if (notifValue == '1') {
             selectID('#rdPopNotifYes');
@@ -102,24 +102,24 @@ $(document).ready(function () {
         } else {
             selectID('#rdForumPostSizeDefault');
         }
-        
+
         //enable/disable flagged links in new tab
         if (flaggedTopicValue == '1') {
             selectID('#rdForumTopicYes');
-            if (page == "forumbookmarks") {    
+            if (page == "forumbookmarks") {
                 var target="#newpost";
-                $('.flagged a').attr('target', '_blank'); 
+                $('.flagged a').attr('target', '_blank');
                 $('.flagged a').attr('onClick', 'window.location.reload();');
             }
         } else selectID('#rdForumTopicNo');
-        
+
         //go to new/last post
         if (newPostValue == '1') {
             selectID('#rdLastPostYes');
-            if (page == "forumbookmarks") {    
-                var target="#newpost";
+            if (page == "forumbookmarks") {
+                var newPost="#newpost";
                 $('.flagged a').attr('href', function(i, currentAttribute){
-                    return currentAttribute + target;
+                    return currentAttribute + newPost;
                 });
             }
         } else selectID('#rdLastPostNo');
@@ -132,14 +132,14 @@ $(document).ready(function () {
             selectID('#rdSiteThemesNight');
             chooseTheme('night');
         } else selectID('#rdSiteThemesDefault');
-        
+
         //enable/disable Full Browser Width
         if (fullWidthValue == '1') {
             selectID('#rdFullwidthYes');
             if(siteThemesValue == '2') GM_addStyle("body,#layout{background:#455a64;}#container{background:#455a64;max-width:100%;padding:0;}");
-            else GM_addStyle("body,#layout{background:#fcfcfc;}#container{background:#fcfcfc;max-width:100%;padding:0;}");   
+            else GM_addStyle("body,#layout{background:#fcfcfc;}#container{background:#fcfcfc;max-width:100%;padding:0;}");
         } else selectID('#rdFullwidthNo');
-        
+
         $(".note").hide();
     }
 
@@ -147,12 +147,12 @@ $(document).ready(function () {
         $(id).attr('checked', true);
         //GM_log(id);
     }
-    
+
     function selectionChange() {
          $(".note").show();
         setTimeout('$(".note").hide();', 5000);
     }
-    
+
     $('#refresh').click(function () {
         location.reload();
     });
@@ -170,21 +170,21 @@ $(document).ready(function () {
         if (val == 'yes') GM_setValue('offBuddies', '1');
         else GM_setValue('offBuddies', '0');
     });
-    
+
     $('.rdPopNotif').change(function () {
         var val = $("input[name=mNotif]:checked").val();
         selectionChange();
         if (val == 'yes') GM_setValue('PopNotif', '1');
         else GM_setValue('PopNotif', '0');
     });
-    
+
     $('.rdForumTopic').change(function () {
         var val = $("input[name=mUpdatedTopic]:checked").val();
         selectionChange();
         if (val == 'yes') GM_setValue('ForumTopic', '1');
         else GM_setValue('ForumTopic', '0');
     });
-    
+
     $('.rdLastPost').change(function () {
         var val = $("input[name=mNewPost]:checked").val();
         selectionChange();
@@ -207,7 +207,7 @@ $(document).ready(function () {
         else if (val == 'night') GM_setValue('siteThemes', '2');
         else GM_setValue('siteThemes', '0');
     });
-    
+
     $('.rdFullwidth').change(function () {
         var val = $("input[name=mFullwidth]:checked").val();
         selectionChange();
@@ -224,12 +224,12 @@ $(document).ready(function () {
             //do nothing
         }
     }
-    
+
     function addNewPostID() {
-        if (page == "viewtopic") {  
+        if (page == "viewtopic") {
             $("li:last-child p.postmeta").attr("id","newpost");
         }
-    }  
+    }
 
     //add keyboard shortcut 'Left/Right arrow' - to previous page and next page in forum topic/item search results
     //replace 'Start a Topic', 'Prev' and 'Next' button with a link
@@ -298,10 +298,10 @@ $(document).ready(function () {
         window.location = "#close";
         tpcOpt = 0;
     });
-    
+
     //add keyboard shortcut 'F8' - Open/Close TipidPColor Options
     Mousetrap.bind('f8', function () {
-        if (tpcOpt == 0) {
+        if (tpcOpt === 0) {
             window.location = "#tpcolorOptions";
             tpcOpt = 1;
         } else {
@@ -309,12 +309,12 @@ $(document).ready(function () {
             tpcOpt = 0;
         }
     });
-    
+
     //add keyboard shortcut 'F9' - Item Manager
     Mousetrap.bind('f9', function () {
         window.location = "itemmanager.php";
     });
-    
+
     //add keyboard shortcut 'F10' - Forum Bookmarks
     Mousetrap.bind('f10', function () {
         window.location = "forumbookmarks.php";
