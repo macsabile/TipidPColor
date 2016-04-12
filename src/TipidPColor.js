@@ -38,6 +38,7 @@ $(document).ready(function () {
     setSavedSettings();
     prevNext();
     addNewPostID();
+    getUnreadCount();
 
     function optionsWindow() {
 
@@ -151,6 +152,18 @@ $(document).ready(function () {
     function selectionChange() {
          $(".note").show();
         setTimeout('$(".note").hide();', 5000);
+    }
+
+    function getUnreadCount() {
+        setTimeout(getUnread, 2000);
+    }
+
+    function getUnread() {
+        var post = $('#forum-bookmarks-ticker').text();
+        var title = $('title').text();
+        if (post) {
+            $('title').html('' + post + ' ' + title + '');
+        }
     }
 
     $('#refresh').click(function () {
