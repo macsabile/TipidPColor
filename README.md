@@ -29,6 +29,7 @@ Features:
 <b>Changelog:</b>
 
 v1.3.6
+- add unread forum count in title bar
 - minor bug fixes
 
 v1.3.5
