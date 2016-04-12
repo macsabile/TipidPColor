@@ -38,7 +38,7 @@ $(document).ready(function () {
     setSavedSettings();
     prevNext();
     addNewPostID();
-    getUnreadCount();
+    //getUnreadCount();
 
     function optionsWindow() {
 
