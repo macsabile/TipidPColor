@@ -28,6 +28,9 @@ Features:
 
 <b>Changelog:</b>
 
+v1.3.7
+- minor bug fixes
+- 
 v1.3.6
 - minor bug fixes
 
