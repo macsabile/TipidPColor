@@ -110,7 +110,7 @@ $(document).ready(function () {
             if (page == "forumbookmarks") {
                 var target="#newpost";
                 $('.flagged a').attr('target', '_blank');
-                $('.flagged a').attr('onClick', 'window.location.reload();');
+                $('.flagged a').attr('onClick', 'setTimeout("location.reload();", 3000);');
             }
         } else selectID('#rdForumTopicNo');
 
