@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name       TipidPColor
 // @namespace   1a004cac1b5d07d47bf96329db466117
-// @version    1.3.7
-// @date       04-25-2016
+// @version    1.3.8
+// @date       05-17-2017
 // @author      mac9erd
 // @description  Change the color of navigation bar, alert box, and many more
 // @match      https://*.tipidpc.com/*
@@ -21,8 +21,8 @@ $(document).ready(function () {
 
     checkSavedSettings();
 
-    var ver = '1.3.7';
-    var build = '042516-1';
+    var ver = '1.3.8';
+    var build = '051717-1';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -38,11 +38,11 @@ $(document).ready(function () {
     setSavedSettings();
     prevNext();
     addNewPostID();
-    //getUnreadCount();
+    announcementHide();
 
     function optionsWindow() {
 
-        var globalCSS = '<style>body{margin:0 auto;padding:0;background:#303030;width:100%}#container{margin: 0 auto;max-width: 1380px;padding: 0 15px;background:#303030;}p.caption{margin: 10px;padding: 0;}#nav{padding: 15px 0 15px 10px;}#textNum{text-align: center;padding: 0;margin: 0;}div#notifications {z-index: 11;}input[type="button"] {border: none;cursor: pointer;padding: 5px 20px;font-weight: bold;}input[type="submit"] {border: none;cursor: pointer;padding: 5px 25px;font-weight: bold;}</style>';
+        var globalCSS = '<style>body{margin:0 auto;padding:0;background:#303030;width:100%}#container{margin: 0 auto;padding: 0 15px;background:#303030;}p.caption{margin: 10px;padding: 0;}#nav{padding: 15px 0 15px 10px;}#textNum{text-align: center;padding: 0;margin: 0;}div#notifications {z-index: 11;}input[type="button"] {border: none;cursor: pointer;padding: 5px 20px;font-weight: bold;}input[type="submit"] {border: none;cursor: pointer;padding: 5px 25px;font-weight: bold;}.announcement{position: fixed;bottom: 15px;right: 0;}</style>';
 
         var customCSS = '<style>.modal-container{font-size:15px!important;position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:10;opacity:0;-webkit-transition:opacity 400ms ease-in;-moz-transition:opacity 400ms ease-in;transition:opacity 400ms ease-in;pointer-events:none}.modal-container:target{opacity:1;pointer-events:auto}.modal-dialog{width:510px;position:relative;margin:10% auto;padding:1px;border-radius:5px;background:#fff}.modal-header{background:#8bc34a;color:#fff;padding:5px;border-top-left-radius:5px;border-top-right-radius:5px}.modal-header h1{font-size:12px;padding-left:5px}.modal-body{height:300px;padding:20px 10px 0;border-bottom:1px solid #eee}.modal-footer{text-align:right;padding:5px 5px 5px 0}.modal-footer a#refresh,.modal-header a{color:#fff!Important}.version{color:#9e9e9e;font-size:10px;text-decoration:none;position:absolute;left:15px;bottom:15px}.btn-cancel,.btn-save{text-decoration:none!Important;display:inline-block;font-size:14px;padding:8px 15px;text-align:center;min-width:60px;position:relative;transition:color .1s ease}.btn-save{background:#8bc34a;border:1px solid #8bc34a;border-radius:3px;color:#fff!Important}.btn-save:hover{background:#7cb342;border:1px solid #7cb342;border-radius:3px;color:#fff}.btn-cancel{background:#e0e0e0;border:1px solid #e0e0e0;border-radius:3px;color:#424242!Important}.btn-cancel:hover{background:#bdbdbd;border:1px solid #bdbdbd;border-radius:3px;color:#fff}.btn-close{color:#fff!Important;font-size:20px;text-decoration:none!Important;position:absolute;right:15px;top:10px}table,tr{border-style:none}table th.title{width:300px;text-align:left}p.note{color:red;padding:0 0 20px;margin:18px auto;font-size:12px;text-align:center}.scrollup{width:21px;height:21px;text-indent:-9999px;z-index:9999;opacity:.5;position:fixed;bottom:40px;right:20px;display:none;background:url(https://raw.githubusercontent.com/macsabile/TipidPColor/master/src/img/scrollUp.png) no-repeat}.scrollup:hover{opacity:1}</style>';
 
@@ -152,6 +152,11 @@ $(document).ready(function () {
     function selectionChange() {
          $(".note").show();
         setTimeout('$(".note").hide();', 5000);
+    }
+    
+    function announcementHide() {
+         $(".announcement").show();
+        setTimeout('$(".announcement").fadeOut();', 5000);
     }
 
     function getUnreadCount() {
