@@ -22,7 +22,7 @@ $(document).ready(function () {
     checkSavedSettings();
 
     var ver = '1.3.8';
-    var build = '051717-1';
+    var build = '051717-2';
     var page = String(location).split('/')[3].split('.php')[0];
     var siteLogoValue = GM_getValue('HideSiteLogo');
     var forumPostValue = GM_getValue('forumPostFontSize');
@@ -39,6 +39,9 @@ $(document).ready(function () {
     prevNext();
     addNewPostID();
     announcementHide();
+    
+    if(window.location.href.indexOf("tipidcp") > -1) tcpWarning();
+    else {//do nothing}
 
     function optionsWindow() {
 
@@ -150,13 +153,18 @@ $(document).ready(function () {
     }
 
     function selectionChange() {
-         $(".note").show();
+        $(".note").show();
         setTimeout('$(".note").hide();', 5000);
     }
     
     function announcementHide() {
-         $(".announcement").show();
+        $(".announcement").show();
         setTimeout('$(".announcement").fadeOut();', 5000);
+    }
+    
+    function tcpWarning() {
+        GM_addStyle('.modal-header {background: #e51c23;');
+        $('.modal-header h1').html('&#9888; TipidCP.com is not 100% supported of this script.');
     }
 
     function getUnreadCount() {
