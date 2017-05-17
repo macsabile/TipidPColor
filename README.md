@@ -28,9 +28,12 @@ Features:
 
 <b>Changelog:</b>
 
+v1.3.8
+- change the position of announcement then hide after 5 seconds
+
 v1.3.7
 - minor bug fixes
-- 
+ 
 v1.3.6
 - minor bug fixes
 
