@@ -17,7 +17,7 @@ Features:
 
 <b>How to install:</b>
 
-1. Install <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_bank">Tampermonkey</a> (for Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_bank">Tampermonkey</a> (for Chrome).
+1. Install <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank">Tampermonkey</a> (for Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_blank">Tampermonkey</a> (for Chrome).
 
 2. Restart browser if needed.
 
